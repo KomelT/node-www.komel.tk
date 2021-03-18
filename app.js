@@ -91,6 +91,18 @@ app.post("/send", (req, res) => {
 
 })
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + '/html/error/404.html'));
+})
+
+app.post("*", (req, res) => {
+    res.status(405).send("Method not allowed");
+})
+
+app.put("*", (req, res) => {
+    res.status(405).send("Method not allowed");
+})
+
 app.listen(8080, (err) => {
     console.log("App is listening on port 8080!")
 });

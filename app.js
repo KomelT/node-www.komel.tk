@@ -7,7 +7,7 @@ var cors = require('cors')
 const Discord = require('discord.js');
 
 // Set allowed origins for /send route
-const allowedOrigins = ["https://www.komel.tk", "https://komel.tk", "http://localhost:8080"];
+const allowedOrigins = ["https://www.komel.tk", "https://komel.tk", "http://localhost:8080", "https://komelt.github.io/"];
 
 // initialize Express.js
 var app = express();

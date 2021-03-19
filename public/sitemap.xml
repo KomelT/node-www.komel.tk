@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84">
-  <sitemap>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
     <loc>https://www.komel.tk/</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.komel.tk/about</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.komel.tk/portfolio</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.komel.tk/contact</loc>
-  </sitemap>
-</sitemapindex>
+  </url>
+  <url>
+    <loc>https://www.komel.tk/about/</loc>
+  </url>
+  <url>
+    <loc>https://www.komel.tk/portfolio/</loc>
+  </url>
+  <url>
+    <loc>https://www.komel.tk/contact/</loc>
+  </url>
+</urlset>

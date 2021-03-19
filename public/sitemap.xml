@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://www.komel.tk/</loc>
-  <lastmod>2021-03-10T19:52:34+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.komel.tk/about</loc>
-  <lastmod>2021-03-10T19:13:47+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.komel.tk/portfolio</loc>
-  <lastmod>2021-03-10T19:13:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.komel.tk/contact</loc>
-  <lastmod>2021-03-10T19:13:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-</urlset>
+<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84">
+  <sitemap>
+    <loc>https://www.komel.tk/</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.komel.tk/about</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.komel.tk/portfolio</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.komel.tk/contact</loc>
+  </sitemap>
+</sitemapindex>

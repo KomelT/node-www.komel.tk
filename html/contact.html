@@ -44,6 +44,7 @@
 
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" href="img/favicon.png" async="true" />
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 
 	<body class="contact">
@@ -150,7 +151,7 @@
 					<!-- Left Side Ends -->
 					<!-- Contact Form Starts -->
 					<div class="col-12 col-lg-8">
-						<form class="contactform" id="contactform1" method="post" action="/send">
+						<form class="contactform" method="post" action="/send">
 							<div class="contactform">
 								<div class="row">
 									<div class="col-12 col-md-4">
@@ -164,13 +165,11 @@
 									</div>
 									<div class="col-12">
 										<textarea name="message" placeholder="YOUR MESSAGE" required></textarea>
-										<button
-											class="btn btn-contact g-recaptcha"
+										<div
+											class="g-recaptcha"
 											data-sitekey="6LewvYcaAAAAAB48f3ZxwubrrmTAT5lFH7MpxDMb"
-											data-callback="onSubmit"
-										>
-											Send Message
-										</button>
+										></div>
+										<button class="btn btn-contact" type="submit">Send Message</button>
 									</div>
 									<div class="col-12 form-message">
 										<span class="output_message text-center font-weight-600 text-uppercase"></span>
@@ -195,7 +194,6 @@
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/custom.js"></script>
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<script src="js/google.js"></script>
 	</body>
 </html>

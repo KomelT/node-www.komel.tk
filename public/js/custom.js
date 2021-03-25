@@ -110,6 +110,11 @@
 						$(".box p").css("display", "none");
 						$(".contactform").find(".output_message").addClass("success");
 						$(".output_message").text("Message Sent!");
+					} else if (result == "recaptcha-failed") {
+						$(".tabs-container").css("height", "440px");
+
+						$(".contactform").find(".output_message").addClass("error");
+						$(".output_message").text("reCaptcha failed!");
 					} else {
 						$(".tabs-container").css("height", "440px");
 

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 var helmet = require('helmet');
 var cors = require('cors')
 const Discord = require('discord.js');
+const fetch = require('node-fetch');
 
 // Set allowed origins for /send route
 const allowedOrigins = ["https://www.komel.tk", "https://komel.tk", "http://localhost:8080", "https://komelt.github.io"];
@@ -40,6 +41,7 @@ app.get('/portfolio', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
+    res.set('Content-Security-Policy', 'script-src https://*')
     res.sendFile(path.join(__dirname + '/html/contact.html'));
 });
 
@@ -52,40 +54,63 @@ app.post("/send", (req, res) => {
         return true;
     }
 
+    //console.log(req.body)
+
     // Parse data from request
     const name = req.body.name;
     const email = req.body.email;
     const subject = req.body.subject;
     const message = req.body.message;
+    const recaptcha = req.body["g-recaptcha-response"]
+
+    console.log(recaptcha)
 
     // Send "success" if all parametrs are OK else "error"
-    if (name === undefined || email === undefined || subject === undefined || message === undefined) {
+    if (name === undefined || email === undefined || subject === undefined || message === undefined || recaptcha === "") {
         res.send("error")
     } else {
-        res.send("success")
 
-        let date = new Date();
+        const params = new URLSearchParams();
+        params.append("secret", process.env.RECAPTCHA_SECRET);
+        params.append("response", recaptcha)
+        const fetchOptions = {
+            method: 'POST',
+            body: params
+        }
 
-        // Set data to embed in Discord message
-        const embed = new Discord.MessageEmbed()
-            .setTitle('**' + subject + '**')
-            .setFooter(date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getYear() + " " + date.toLocaleTimeString())
-            .setThumbnail("https://www.komel.tk/img/favicon.png")
-            .addFields([
-                {
-                    name: "From:",
-                    value: name + "\n" + email
-                },
-                {
-                    name: "Message:",
-                    value: message
-                }
-            ])
+        fetch("https://www.google.com/recaptcha/api/siteverify", fetchOptions).then(res => res.json()).then(body => {
+            console.log(body)
+            console.log(body.success)
+            if (body.success === true) {
+                res.send("success")
 
-        // Execute Discord message
-        webhookClient.send("", {
-            embeds: [embed]
-        })
+                let date = new Date();
+
+                // Set data to embed in Discord message
+                const embed = new Discord.MessageEmbed()
+                    .setTitle('**' + subject + '**')
+                    .setFooter(date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getYear() + " " + date.toLocaleTimeString())
+                    .setThumbnail("https://www.komel.tk/img/favicon.png")
+                    .addFields([
+                        {
+                            name: "From:",
+                            value: name + "\n" + email
+                        },
+                        {
+                            name: "Message:",
+                            value: message
+                        }
+                    ])
+
+                // Execute Discord message
+                webhookClient.send("", {
+                    embeds: [embed]
+                })
+
+            } else {
+                res.send("recaptcha-failed")
+            }
+        });
     }
 
 

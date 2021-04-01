@@ -8,7 +8,7 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 
 // Set allowed origins for /send route
-const allowedOrigins = ["https://www.komel.tk", "https://komel.tk", "http://localhost:8080", "https://komelt.github.io"];
+const allowedOrigins = ["https://www.komel.tk", "https://komel.tk", "https://komelt.github.io"];
 
 // initialize Express.js
 var app = express();

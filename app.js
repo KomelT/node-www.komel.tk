@@ -29,8 +29,6 @@ app.use(
                 "'none'"
             ],
             "script-src": [
-                "'self'",
-                "'report-sample'",
                 "https://*.gstatic.com/",
                 "https://*.google.com/"
             ],

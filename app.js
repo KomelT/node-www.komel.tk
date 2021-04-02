@@ -45,7 +45,8 @@ app.use(
                 "'unsafe-inline'",
                 "https://www.googletagmanager.com/gtag/js",
                 "https://www.gstatic.com/",
-                "https://www.google.com/"
+                "https://www.google.com/",
+                "'nonce-Uym40mykgrWcusKF6FAG'"
             ],
             "style-src": [
                 "'self'",

@@ -30,17 +30,24 @@ app.use(
             ],
             "script-src": [
                 "'self'",
-                "'report-sample'"
+                "'report-sample'",
+                "'unsafe-inline'",
+                "https://www.gstatic.com/",
+                "https://www.google.com/",
+                "https://www.googletagmanager.com/"
             ],
             "style-src": [
                 "'self'",
-                "'report-sample'"
+                "'report-sample'",
+                "'unsafe-inline'",
+                "https://fonts.googleapis.com/"
             ],
             "object-src": [
                 "'none'"
             ],
             "frame-src": [
-                "'none'"
+                "https://www.komel.tk/",
+                "https://www.google.com/"
             ],
             "child-src": [
                 "'none'"
@@ -49,10 +56,11 @@ app.use(
                 "'self'"
             ],
             "font-src": [
-                "'self'"
+                "'self'",
+                "https://fonts.gstatic.com/"
             ],
             "connect-src": [
-                "'none'"
+                "https://www.komel.tk/"
             ],
             "manifest-src": [
                 "'none'"

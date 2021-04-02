@@ -6,6 +6,7 @@ var helmet = require('helmet');
 var cors = require('cors')
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
+const contentSecurityPolicy = require("express-csp-generator");
 
 // Set allowed origins for /send route
 const allowedOrigins = ["https://www.komel.tk", "https://komel.tk", "https://komelt.github.io"];

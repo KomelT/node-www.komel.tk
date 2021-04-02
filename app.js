@@ -30,7 +30,9 @@ app.use(
             ],
             "script-src": [
                 "https://*.gstatic.com/",
-                "https://*.google.com/"
+                "https://*.google.com/",
+                "https://*.komel.tk/",
+                "https://*.googletagmanager.com/"
             ],
             "style-src": [
                 "'self'",

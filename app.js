@@ -111,7 +111,6 @@ app.get('/portfolio', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
-    res.set('Content-Security-Policy', 'script-src https://*')
     res.sendFile(path.join(__dirname + '/html/contact.html'));
 });
 

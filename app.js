@@ -34,7 +34,8 @@ app.use(
                 "'unsafe-inline'",
                 "https://www.gstatic.com/",
                 "https://www.google.com/",
-                "https://www.googletagmanager.com/"
+                "https://www.googletagmanager.com/",
+                "https://www.google.com/recaptcha/api.js"
             ],
             "style-src": [
                 "'self'",

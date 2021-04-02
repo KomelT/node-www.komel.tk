@@ -25,7 +25,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use((req, res, next) => {
-    res.append('content-security-policy-report-only', "frame-ancestors 'none'; block-all-mixed-content; default-src 'none'; script-src 'self' 'report-sample'; style-src 'self' 'report-sample'; object-src 'none'; frame-src 'none'; child-src 'none'; img-src 'self'; font-src 'self'; connect-src 'none'; manifest-src 'none'; base-uri 'self'; form-action 'none'; media-src 'none'; prefetch-src 'none'; worker-src 'none'; report-uri https://gate.rapidsec.net/g/r/csp/259afaa7-9e8a-4a1f-8cfe-93602f437c5d/0/0/3?sct=9c701142-6231-49aa-b6dd-0dfe7a9f0fee&dpos=report");
+    /*res.append('content-security-policy-report-only', "frame-ancestors 'none'; block-all-mixed-content; default-src 'none'; script-src 'self' 'report-sample'; style-src 'self' 'report-sample'; object-src 'none'; frame-src 'none'; child-src 'none'; img-src 'self'; font-src 'self'; connect-src 'none'; manifest-src 'none'; base-uri 'self'; form-action 'none'; media-src 'none'; prefetch-src 'none'; worker-src 'none'; report-uri https://gate.rapidsec.net/g/r/csp/259afaa7-9e8a-4a1f-8cfe-93602f437c5d/0/0/3?sct=9c701142-6231-49aa-b6dd-0dfe7a9f0fee&dpos=report");*/
+
+    res.append("content-security-policy-report-only", "frame-ancestors 'none'; block-all-mixed-content; default-src 'none'; script-src 'self' 'report-sample' https://*.gstatic.com/ https://*.google.com/; style-src 'self' 'report-sample' 'unsafe-inline' https://*.googleapis.com/; object-src 'none'; frame-src https://*.google.com/; child-src 'none'; img-src 'self'; font-src 'self'; connect-src 'none'; manifest-src 'none'; base-uri 'self'; form-action 'none'; media-src 'none'; prefetch-src 'none'; worker-src 'none'; report-uri https://gate.rapidsec.net/g/r/csp/259afaa7-9e8a-4a1f-8cfe-93602f437c5d/0/1/3?sct=9c701142-6231-49aa-b6dd-0dfe7a9f0fee&dpos=report")
     next();
 });
 

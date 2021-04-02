@@ -18,6 +18,14 @@ var app = express();
 const webhookClient = new Discord.WebhookClient(process.env.DISCORD_ID, process.env.DISCORD_TOKEN);
 
 // Middlewares
+
+app.use(cors());
+app.use(helmet());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
+
 app.use(
     contentSecurityPolicy({
         "directives": {
@@ -28,14 +36,13 @@ app.use(
             "default-src": [
                 "'none'"
             ],
+            "script-src-elem": [
+                "'self'"
+            ],
             "script-src": [
                 "'self'",
-                "'report-sample'",
-                "'unsafe-inline'",
-                "https://www.gstatic.com/",
-                "https://www.google.com/",
-                "https://www.googletagmanager.com/",
-                "https://www.google.com/recaptcha/"
+                "https://www.gstatic.com",
+                "https://www.google.com"
             ],
             "style-src": [
                 "'self'",
@@ -85,22 +92,16 @@ app.use(
                 "https://gate.rapidsec.net/g/r/csp/b3a6a7f0-407a-4815-b972-b795fc9e2f91/0/3/3?sct=ff3f873a-89ae-4ccf-b082-50098f31e34c&dpos=report"
             ]
         },
-        "reportOnly": true
+        "reportOnly": false
     })
 );
-
-app.use(cors());
-app.use(helmet());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-    extended: true
-}));
 
 // Allow direct queries to folder "public"
 app.use(express.static("public"))
 
 // Routes to serve diferent sites
 app.get('/', (req, res) => {
+    res.set('Content-Security-Policy', 'script-src *');
     res.sendFile(path.join(__dirname + '/html/index.html'));
 });
 
@@ -113,6 +114,7 @@ app.get('/portfolio', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
+    res.set('Content-Security-Policy', 'script-src https://*');
     res.sendFile(path.join(__dirname + '/html/contact.html'));
 });
 

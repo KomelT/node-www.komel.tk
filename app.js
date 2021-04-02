@@ -46,7 +46,7 @@ app.use(
                 "https://www.googletagmanager.com/gtag/js",
                 "https://www.gstatic.com/",
                 "https://www.google.com/",
-                "'nonce-Uym40mykgrWcusKF6FAG'"
+                "'sha256-sm1FiMG1fJM+GbJ6iIWkZj7f0yqJz0AhdUldyMrVglA='"
             ],
             "style-src": [
                 "'self'",

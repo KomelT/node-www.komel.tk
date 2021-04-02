@@ -30,11 +30,15 @@ app.use(
             ],
             "script-src": [
                 "'self'",
-                "'report-sample'"
+                "'report-sample'",
+                "'unsafe-inline'",
+                "www.googletagmanager.com"
             ],
             "style-src": [
                 "'self'",
-                "'report-sample'"
+                "'report-sample'",
+                "'unsafe-inline'",
+                "fonts.googleapis.com"
             ],
             "object-src": [
                 "'none'"
@@ -49,7 +53,8 @@ app.use(
                 "'self'"
             ],
             "font-src": [
-                "'self'"
+                "'self'",
+                "fonts.gstatic.com"
             ],
             "connect-src": [
                 "'none'"
@@ -73,7 +78,7 @@ app.use(
                 "'none'"
             ],
             "report-uri": [
-                "https://gate.rapidsec.net/g/r/csp/b3a6a7f0-407a-4815-b972-b795fc9e2f91/0/0/3?sct=ff3f873a-89ae-4ccf-b082-50098f31e34c&dpos=report"
+                "https://gate.rapidsec.net/g/r/csp/b3a6a7f0-407a-4815-b972-b795fc9e2f91/0/1/3?sct=ff3f873a-89ae-4ccf-b082-50098f31e34c&dpos=report"
             ]
         },
         "reportOnly": true

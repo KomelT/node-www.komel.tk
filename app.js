@@ -43,7 +43,7 @@ app.use(
                 "'self'",
                 "'report-sample'",
                 "'unsafe-inline'",
-                "https://www.googletagmanager.com/*",
+                "https://www.googletagmanager.com/gtag/js",
                 "https://www.gstatic.com/",
                 "https://www.google.com/"
             ],

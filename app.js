@@ -35,7 +35,7 @@ app.use(
                 "https://www.gstatic.com/",
                 "https://www.google.com/",
                 "https://www.googletagmanager.com/",
-                "https://www.google.com/recaptcha/api.js"
+                "https://www.google.com/recaptcha/"
             ],
             "style-src": [
                 "'self'",

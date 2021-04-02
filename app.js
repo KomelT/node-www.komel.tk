@@ -18,6 +18,67 @@ var app = express();
 const webhookClient = new Discord.WebhookClient(process.env.DISCORD_ID, process.env.DISCORD_TOKEN);
 
 // Middlewares
+app.use(
+    contentSecurityPolicy({
+        "directives": {
+            "frame-ancestors": [
+                "'none'"
+            ],
+            "block-all-mixed-content": [],
+            "default-src": [
+                "'none'"
+            ],
+            "script-src": [
+                "'self'",
+                "'report-sample'"
+            ],
+            "style-src": [
+                "'self'",
+                "'report-sample'"
+            ],
+            "object-src": [
+                "'none'"
+            ],
+            "frame-src": [
+                "'none'"
+            ],
+            "child-src": [
+                "'none'"
+            ],
+            "img-src": [
+                "'self'"
+            ],
+            "font-src": [
+                "'self'"
+            ],
+            "connect-src": [
+                "'none'"
+            ],
+            "manifest-src": [
+                "'none'"
+            ],
+            "base-uri": [
+                "'self'"
+            ],
+            "form-action": [
+                "'none'"
+            ],
+            "media-src": [
+                "'none'"
+            ],
+            "prefetch-src": [
+                "'none'"
+            ],
+            "worker-src": [
+                "'none'"
+            ],
+            "report-uri": [
+                "https://gate.rapidsec.net/g/r/csp/b3a6a7f0-407a-4815-b972-b795fc9e2f91/0/3/3?sct=ff3f873a-89ae-4ccf-b082-50098f31e34c&dpos=report"
+            ]
+        },
+        "reportOnly": true
+    })
+);
 
 app.use(cors());
 app.use(helmet());

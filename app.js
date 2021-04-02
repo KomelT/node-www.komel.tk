@@ -41,12 +41,12 @@ app.use(
             ],
             "script-src": [
                 "'self'",
+                "'sha256-sm1FiMG1fJM+GbJ6iIWkZj7f0yqJz0AhdUldyMrVglA='",
                 "'report-sample'",
                 "'unsafe-inline'",
-                "https://www.googletagmanager.com/gtag/js",
                 "https://www.gstatic.com/",
                 "https://www.google.com/",
-                "'sha256-sm1FiMG1fJM+GbJ6iIWkZj7f0yqJz0AhdUldyMrVglA='"
+                "www.googletagmanager.com"
             ],
             "style-src": [
                 "'self'",
@@ -92,7 +92,7 @@ app.use(
                 "'none'"
             ],
             "report-uri": [
-                "https://gate.rapidsec.net/g/r/csp/b3a6a7f0-407a-4815-b972-b795fc9e2f91/0/1/3?sct=ff3f873a-89ae-4ccf-b082-50098f31e34c&dpos=report"
+                "https://gate.rapidsec.net/g/r/csp/b3a6a7f0-407a-4815-b972-b795fc9e2f91/0/2/3?sct=ff3f873a-89ae-4ccf-b082-50098f31e34c&dpos=report"
             ]
         },
         "reportOnly": true

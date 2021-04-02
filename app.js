@@ -18,6 +18,17 @@ var app = express();
 const webhookClient = new Discord.WebhookClient(process.env.DISCORD_ID, process.env.DISCORD_TOKEN);
 
 // Middlewares
+
+app.use(cors());
+app.use(helmet());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
+
+// Allow direct queries to folder "public"
+app.use(express.static("public"))
+
 app.use(
     contentSecurityPolicy({
         "directives": {
@@ -84,16 +95,6 @@ app.use(
         "reportOnly": true
     })
 );
-
-app.use(cors());
-app.use(helmet());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-    extended: true
-}));
-
-// Allow direct queries to folder "public"
-app.use(express.static("public"))
 
 // Routes to serve diferent sites
 app.get('/', (req, res) => {

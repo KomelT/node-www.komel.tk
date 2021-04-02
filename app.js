@@ -29,22 +29,18 @@ app.use(
                 "'none'"
             ],
             "script-src": [
-                "https://*.gstatic.com/",
-                "https://*.google.com/",
-                "https://*.komel.tk/",
-                "https://*.googletagmanager.com/"
+                "'self'",
+                "'report-sample'"
             ],
             "style-src": [
                 "'self'",
-                "'report-sample'",
-                "'unsafe-inline'",
-                "https://*.googleapis.com/"
+                "'report-sample'"
             ],
             "object-src": [
                 "'none'"
             ],
             "frame-src": [
-                "https://*.google.com/"
+                "'none'"
             ],
             "child-src": [
                 "'none'"
@@ -77,7 +73,7 @@ app.use(
                 "'none'"
             ],
             "report-uri": [
-                "https://gate.rapidsec.net/g/r/csp/259afaa7-9e8a-4a1f-8cfe-93602f437c5d/0/1/3?sct=9c701142-6231-49aa-b6dd-0dfe7a9f0fee&dpos=report"
+                "https://gate.rapidsec.net/g/r/csp/b3a6a7f0-407a-4815-b972-b795fc9e2f91/0/0/3?sct=ff3f873a-89ae-4ccf-b082-50098f31e34c&dpos=report"
             ]
         },
         "reportOnly": true

@@ -43,7 +43,8 @@ app.use(
                 "'self'",
                 "'report-sample'",
                 "'unsafe-inline'",
-                "www.googletagmanager.com"
+                "www.googletagmanager.com",
+                "https://www.gstatic.com"
             ],
             "style-src": [
                 "'self'",
@@ -55,7 +56,7 @@ app.use(
                 "'none'"
             ],
             "frame-src": [
-                "'none'"
+                "https://www.google.com/"
             ],
             "child-src": [
                 "'none'"

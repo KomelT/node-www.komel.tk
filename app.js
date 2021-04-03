@@ -104,30 +104,30 @@ app.use(express.static("public"))
 
 // Routes to serve diferent sites
 app.get('/', (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone is looking /");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone is looking /");
     res.set('Content-Security-Policy', 'script-src *');
     res.sendFile(path.join(__dirname + '/html/index.html'));
 });
 
 app.get('/about', (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone is looking /about");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone is looking /about");
     res.sendFile(path.join(__dirname + '/html/about.html'));
 });
 
 app.get('/portfolio', (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone is looking /portfolio");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone is looking /portfolio");
     res.sendFile(path.join(__dirname + '/html/portfolio.html'));
 });
 
 app.get('/contact', (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone is looking /contacts");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone is looking /contacts");
     res.set('Content-Security-Policy', 'script-src https://*');
     res.sendFile(path.join(__dirname + '/html/contact.html'));
 });
 
 // POST request to send Discord message
 app.post("/send", (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone sent POST request to /send");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone sent POST request to /send");
     // Test if origin is right
     if (allowedOrigins.indexOf(req.header("Origin")) === -1) {
         res.send("Origin '" + req.header("Origin") + "' not allowed!")
@@ -197,17 +197,17 @@ app.post("/send", (req, res) => {
 })
 
 app.get("*", (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone got 404 error");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone got 404 error");
     res.sendFile(path.join(__dirname + '/html/error/404.html'));
 })
 
 app.post("*", (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone sent POST request to /*");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone sent POST request to /*");
     res.status(405).send("Method not allowed");
 })
 
 app.put("*", (req, res) => {
-    webhookClient.send("[www.komel.tk] Someone sent PUT request to /*");
+    webhookClient.send("[www.komel.tk] " + process.env.LOCATION + " Someone sent PUT request to /*");
     res.status(405).send("Method not allowed");
 })
 

@@ -16,6 +16,9 @@ var app = express();
 
 // Declare Discord webhook
 const webhookClient = new Discord.WebhookClient(process.env.DISCORD_ID, process.env.DISCORD_TOKEN);
+console.log(process.env.DISCORD_ID)
+console.log(process.env.DISCORD_TOKEN)
+
 
 // Middlewares
 

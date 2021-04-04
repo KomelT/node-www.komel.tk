@@ -2,17 +2,18 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
 		<loc>https://www.komel.tk</loc>
-		<lastmod>2021-03-30T09:06:05+00:00</lastmod>
+		<lastmod>2021-04-3T09:06:05+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://www.komel.tk/about</loc>
-		<lastmod>2021-03-30T08:22:26+00:00</lastmod>
+		<lastmod>2021-04-3T09:06:05+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://www.komel.tk/portfolio</loc>
+		<lastmod>2021-04-3T09:06:05+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://www.komel.tk/contact</loc>
-		<lastmod>2021-03-30T09:06:05+00:00</lastmod>
+		<lastmod>2021-04-3T09:06:05+00:00</lastmod>
 	</sitemap>
 </sitemapindex>

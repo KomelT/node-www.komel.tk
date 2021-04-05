@@ -4,7 +4,7 @@
   "description": "Tilen's personal website",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js",
+    "test": "jest",
     "start": "node app.js"
   },
   "author": "Tilen Komel",

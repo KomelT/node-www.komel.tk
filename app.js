@@ -7,17 +7,62 @@ var cors = require('cors')
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const contentSecurityPolicy = require("express-csp-generator");
+const validUrl = require('valid-url');
+
+console.log("[.env] Test");
+if (process.env.PRESENT) {
+    try {
+        console.log("\t-[OK] .env is present");
+        if (process.env.DISCORD_ID) console.log("\t-[OK] 'DISCORD_ID' is present,");
+        else throw "\t-[ERR] 'DISCORD_ID' is not present";
+
+        if (process.env.DISCORD_TOKEN) console.log("\t-[OK] 'DISCORD_TOKEN' is present,");
+        else throw "\t-[ERR] 'DISCORD_TOKEN' is not present";
+
+        if (process.env.RECAPTCHA_SECRET) console.log("\t-[OK] 'RECAPTCHA_SECRET' is present,");
+        else throw "\t-[ERR] 'RECAPTCHA_SECRET' is not present";
+
+        if (process.env.LOCATION) console.log("\t-[OK] 'LOCATION' is present,");
+        else throw "\t-[ERR] 'LOCATION' is not present";
+
+        if (process.env.ALLOWEDORIGINS) console.log("\t-[OK] 'ALLOWEDORIGINS' is present");
+        else throw "\t-[ERR] 'ALLOWEDORIGINS' is not present";
+
+    } catch (e) {
+        console.log(e)
+        process.exit(1);
+    }
+} else {
+    console.log("\t-[ERR] .env is not present");
+    process.exit(1);
+}
+
+console.log("\n[Allowed Origins] Test");
 
 // Set allowed origins for /send route
-const allowedOrigins = ["https://www.komel.tk", "https://komel.tk", "https://komelt.github.io"];
+let allowedOrigins = "";
+try {
+    allowedOrigins = (process.env.ALLOWEDORIGINS).split(",");
+} catch (e) {
+    console.log("\t-[ERR] environment variable 'ALLOWEDORIGINS' can't be splitted by ','. Please check it and start program again!");
+    process.exit(1);
+}
+
+allowedOrigins.map((url, i) => {
+    if (validUrl.isUri(url)) console.log("\t-[OK] '" + url + "' looks like an url!");
+    else {
+        console.log("\t-[ERR] '" + url + "' doesn't looks like an url, so it will be ignored!");
+        allowedOrigins.splice(i, 1);
+    }
+})
+
+if (allowedOrigins == 0) throw "[ERR] in environment variable 'ALLOWEDORIGINS' is none valid urls!"
 
 // initialize Express.js
 var app = express();
 
 // Declare Discord webhook
 const webhookClient = new Discord.WebhookClient(process.env.DISCORD_ID, process.env.DISCORD_TOKEN);
-console.log(process.env.DISCORD_ID)
-console.log(process.env.DISCORD_TOKEN)
 
 
 // Middlewares
@@ -208,5 +253,5 @@ app.put("*", (req, res) => {
 })
 
 app.listen(8080, (err) => {
-    console.log("App is listening on port 8080!")
+    console.log("\nApp is listening on port 8080!")
 });

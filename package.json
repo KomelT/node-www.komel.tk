@@ -1,11 +1,11 @@
 {
   "name": "node-www.komel.tk",
   "version": "1.0.0",
-  "description": "Tilen's personal website",
+  "description": "Tilen Komel's personal website",
   "main": "app.js",
   "scripts": {
-    "test": "jest",
-    "start": "node app.js"
+    "test": "node app.js",
+    "start": "pm2 start app.js --name node-www.komel.tk"
   },
   "author": "Tilen Komel",
   "license": "ISC",
@@ -18,6 +18,7 @@
     "express-csp-generator": "^1.0.3",
     "helmet": "^4.4.1",
     "node-fetch": "^2.6.1",
+    "pm2": "^4.5.6",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {

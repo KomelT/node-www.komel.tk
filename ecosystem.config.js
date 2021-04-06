@@ -1,8 +1,8 @@
 module.exports = {
   apps: [{
-    name: "node-www.komel.tk",
+    name: "node-www.komelt.tk",
     script: './app.js',
-    cwd: "/var/www/node-www.komel.tk",
+    cwd: "/var/www/node-www.komelt.tk",
     watch: 'true'
   }]
 };

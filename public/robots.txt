@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.komel.tk/sitemap.xml
-Sitemap: https://komel.tk/sitemap.xml
+Sitemap: https://www.komelt.tk/sitemap.xml
+Sitemap: https://komelt.tk/sitemap.xml

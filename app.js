@@ -238,17 +238,17 @@ app.post("/send", (req, res) => {
 })
 
 app.get("*", (req, res) => {
-    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone got 404 error");
+    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone got 404 error " + req.path);
     res.sendFile(path.join(__dirname + '/html/error/404.html'));
 })
 
 app.post("*", (req, res) => {
-    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone sent POST request to /*");
+    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone sent POST request to " + req.path);
     res.status(405).send("Method not allowed");
 })
 
 app.put("*", (req, res) => {
-    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone sent PUT request to /*");
+    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone sent PUT request to " + req.path);
     res.status(405).send("Method not allowed");
 })
 

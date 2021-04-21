@@ -211,7 +211,7 @@ app.post("/send", (req, res) => {
                 const embed = new Discord.MessageEmbed()
                     .setTitle('**' + subject + '**')
                     .setFooter(date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getYear() + " " + date.toLocaleTimeString())
-                    .setThumbnail("https://www.komelt.tk/img/favicon.png")
+                    .setThumbnail("https://www.komelt.dev/img/favicon.png")
                     .addFields([
                         {
                             name: "From:",

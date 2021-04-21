@@ -85,6 +85,7 @@ app.use((req, res, next) => {
         next();
         */
     console.log("Hej")
+    next();
 })
 
 app.use(

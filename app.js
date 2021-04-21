@@ -75,7 +75,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use((req, res, next) => {
-    webhookClient.send("Requested Host: " + req.header["host"])
+    webhookClient.send("Requested Host: " + req.headers["host"])
     next();
 })
 

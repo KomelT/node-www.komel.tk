@@ -1,4 +1,5 @@
 require("dotenv").config()
+var compression = require('compression')
 var express = require('express');
 var path = require('path');
 const bodyParser = require('body-parser');
@@ -66,7 +67,7 @@ const webhookClient = new Discord.WebhookClient(process.env.DISCORD_ID, process.
 
 
 // Middlewares
-
+app.use(compression())
 app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());

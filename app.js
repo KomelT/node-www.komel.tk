@@ -74,6 +74,11 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
+app.use((req, res, next) => {
+    webhookClient.send("Requested Host: " + req.header["host"])
+    next();
+})
+
 app.use(
     contentSecurityPolicy({
         "directives": {
@@ -102,7 +107,7 @@ app.use(
                 "'none'"
             ],
             "frame-src": [
-                "https://www.komelt.tk/",
+                "https://www.komelt.dev/",
                 "https://www.google.com/"
             ],
             "child-src": [
@@ -116,7 +121,7 @@ app.use(
                 "https://fonts.gstatic.com/"
             ],
             "connect-src": [
-                "https://www.komelt.tk/"
+                "https://www.komelt.dev/"
             ],
             "manifest-src": [
                 "'none'"

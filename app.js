@@ -75,8 +75,11 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use((req, res, next) => {
-    webhookClient.send("Requested Host: " + req.headers["host"])
-    next();
+    const host = req.headers["host"]
+    if (host != "www.komelt.dev")
+        res.redirect("https://www.komelt.dev")
+    else
+        next();
 })
 
 app.use(

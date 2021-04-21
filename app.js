@@ -176,7 +176,7 @@ app.get('/contact', (req, res) => {
 
 // POST request to send Discord message
 app.post("/send", (req, res) => {
-    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone sent POST request to /send");
+    webhookClient.send("[www.komelt.dev] " + process.env.LOCATION + " Someone sent POST request to /send");
     // Test if origin is right
     if (allowedOrigins.indexOf(req.header("Origin")) === -1) {
         res.send("Origin '" + req.header("Origin") + "' not allowed!")
@@ -246,17 +246,17 @@ app.post("/send", (req, res) => {
 })
 
 app.get("*", (req, res) => {
-    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone got 404 error " + req.path);
+    webhookClient.send("[www.komelt.dev] " + process.env.LOCATION + " Someone got 404 error " + req.path);
     res.sendFile(path.join(__dirname + '/html/error/404.html'));
 })
 
 app.post("*", (req, res) => {
-    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone sent POST request to " + req.path);
+    webhookClient.send("[www.komelt.dev] " + process.env.LOCATION + " Someone sent POST request to " + req.path);
     res.status(405).send("Method not allowed");
 })
 
 app.put("*", (req, res) => {
-    webhookClient.send("[www.komelt.tk] " + process.env.LOCATION + " Someone sent PUT request to " + req.path);
+    webhookClient.send("[www.komelt.dev] " + process.env.LOCATION + " Someone sent PUT request to " + req.path);
     res.status(405).send("Method not allowed");
 })
 

@@ -1,4 +1,4 @@
-# node-www.komelt.tk
+# node-www.komelt.dev
 
 My personal website
 

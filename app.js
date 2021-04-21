@@ -77,11 +77,12 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.use((req, res, next) => {
+    /*
     const host = req.headers["host"]
     if (host != "www.komelt.dev")
         res.redirect("https://www.komelt.dev")
-    else
-        next();
+    else*/
+    next();
 })
 
 app.use(

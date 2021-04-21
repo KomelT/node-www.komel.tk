@@ -75,6 +75,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
+/*
 app.use((req, res, next) => {
     const host = req.headers["host"]
     if (host != "www.komelt.dev")
@@ -82,7 +83,7 @@ app.use((req, res, next) => {
     else
         next();
 })
-
+*/
 app.use(
     contentSecurityPolicy({
         "directives": {

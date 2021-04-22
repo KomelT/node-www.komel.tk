@@ -96,7 +96,8 @@ app.use(
                 "'none'"
             ],
             "script-src-elem": [
-                "'self'"
+                "'self'",
+                "https://www.googletagmanager.com/gtag/js?id=G-S793JBVKTJ"
             ],
             "script-src": [
                 "'self'",

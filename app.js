@@ -75,16 +75,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
-
-app.use((req, res, next) => {
-    /*
-    const host = req.headers["host"]
-    if (host != "www.komelt.dev")
-        res.redirect("https://www.komelt.dev")
-    else*/
-    next();
-})
-
 app.use(
     contentSecurityPolicy({
         "directives": {
@@ -161,9 +151,22 @@ app.use(express.static("public"))
 
 // Routes to serve diferent sites
 app.get('/', (req, res) => {
-    res.set('Content-Security-Policy', 'script-src *');
-    res.sendFile(path.join(__dirname + '/html/index.html'));
+    if (req.headers["host"] != "www.komelt.dev") {
+        res.set('Content-Security-Policy', 'script-src *');
+        res.sendFile(path.join(__dirname + '/html/caconical/index.html'));
+    } else {
+        res.set('Content-Security-Policy', 'script-src *');
+        res.sendFile(path.join(__dirname + '/html/index.html'));
+    }
 });
+
+app.use((req, res, next) => {
+    const host = req.headers["host"]
+    if (host != "www.komelt.dev")
+        res.redirect("https://www.komelt.dev")
+    else
+        next();
+})
 
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname + '/html/about.html'));

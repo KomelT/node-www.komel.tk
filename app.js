@@ -132,12 +132,8 @@ app.use((req, res, next) => {
 	else next();
 });
 
-app.get('/about/', (req, res) => {
-	res.sendFile(path.join(__dirname + '/html/about.html'));
-});
-
 app.get('/about', (req, res) => {
-	res.redirect('/about/');
+	res.sendFile(path.join(__dirname + '/html/about.html'));
 });
 
 app.get('/portfolio', (req, res) => {

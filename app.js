@@ -146,7 +146,7 @@ app.get('/contact', (req, res) => {
 });
 */
 // POST request to send Discord message
-app.post('/', (req, res) => {
+app.post('/send', (req, res) => {
 	webhookClient.send(
 		'[www.komelt.dev] ' + process.env.LOCATION + ' Someone sent POST request to /send'
 	);

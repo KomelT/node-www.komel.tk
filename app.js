@@ -245,7 +245,7 @@ app.post('*', (req, res) => {
 	webhookClient.send(
 		'[www.komelt.dev] ' + process.env.LOCATION + ' Someone sent POST request to ' + req.path
 	);
-	res.status(405).send('Method not allowed');
+	res.status(405).send('Method not allowed ' + req.path);
 });
 
 app.put('*', (req, res) => {

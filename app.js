@@ -112,9 +112,9 @@ app.use(
 	})
 );
 
+/*
 // Allow direct queries to folder "public"
 app.use(express.static('public'));
-/*
 // Routes to serve diferent sites
 app.get('/', (req, res) => {
 	if (req.headers['host'] != 'www.komelt.dev') {
@@ -146,7 +146,7 @@ app.get('/contact', (req, res) => {
 });
 */
 // POST request to send Discord message
-app.post('/send', (req, res) => {
+app.post('/', (req, res) => {
 	webhookClient.send(
 		'[www.komelt.dev] ' + process.env.LOCATION + ' Someone sent POST request to /send'
 	);

@@ -231,10 +231,14 @@ app.post('/send', (req, res) => {
 });
 
 app.get('*', (req, res) => {
+	/*
 	webhookClient.send(
 		'[www.komelt.dev] ' + process.env.LOCATION + ' Someone got 404 error ' + req.path
 	);
 	res.status(404).sendFile(path.join(__dirname + '/html/error/404.html'));
+	*/
+
+	res.send('hej');
 });
 
 app.post('*', (req, res) => {
